@@ -6,6 +6,8 @@ import Button from '../ui/Button'
 import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
 import { useParams } from 'react-router'
 import StepInfo from './StepInfo'
+import Html from '@/components/Html'
+import Style from '@/components/Style'
 
 export default function View() {
   const { penId } = useParams()
@@ -14,8 +16,9 @@ export default function View() {
 
   if (!pen) return null
 
-  const currentStep = 0
+  const currentStep = pen.steps.length - 1
   const currentInfo = pen.steps[currentStep].info
+  const currentCSS = pen.steps[currentStep].css
 
   return (
     <div
@@ -24,6 +27,9 @@ export default function View() {
         'h-0': codeFull,
       })}>
       <StepInfo textcolor={pen.textcolor} currentInfo={currentInfo} />
+
+      <Html html={pen.html} />
+      <Style css={currentCSS} />
 
       <StepsNav />
 

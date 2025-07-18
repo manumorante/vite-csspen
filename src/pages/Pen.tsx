@@ -12,7 +12,7 @@ export default function App() {
   if (!pen) return null
 
   return (
-    <Layout>
+    <Layout bgcolor={pen.bgcolor}>
       <Header />
       <View />
       <Code />
