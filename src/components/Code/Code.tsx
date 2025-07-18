@@ -1,6 +1,6 @@
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
-import Button from './ui/Button'
+import Button from '../ui/Button'
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/20/solid'
 
 export default function Code() {
