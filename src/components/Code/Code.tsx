@@ -8,7 +8,7 @@ export default function Code() {
   const { codeHide, codeMid, codeFull, setCodeVisibility } = useUIStore()
   return (
     <div
-      className={cn('Code', 'relative overflow-hidden', 'bg-black/40', {
+      className={cn('Code', 'relative overflow-hidden transition-all duration-300', 'bg-black/40', {
         'h-0': codeHide,
         'h-1/2': codeMid,
         'h-full': codeFull,
