@@ -1,5 +1,6 @@
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
+import PenInfo from '../View/PenInfo'
 
 export default function Header() {
   const { codeFull } = useUIStore()
@@ -17,6 +18,8 @@ export default function Header() {
           </div>
         ))}
       </div>
+
+      <PenInfo />
     </div>
   )
 }
