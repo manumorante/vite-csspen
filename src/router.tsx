@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
 
-import Pen from '@/Pen'
+import App from '@/App'
 
 const router = createBrowserRouter([
   {
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:penId',
-        Component: Pen,
+        Component: App,
       },
     ],
   },
