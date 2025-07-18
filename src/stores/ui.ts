@@ -4,6 +4,8 @@ import { devtools } from 'zustand/middleware'
 type UIState = {
   // Data
   codeHide: boolean
+  codeMid: boolean
+  codeFull: boolean
   isPlaying: boolean
 
   // Actions
@@ -15,10 +17,17 @@ export const useUIStore = create<UIState>()(
   devtools((set) => ({
     // Data
     codeHide: true,
+    codeMid: true,
+    codeFull: false,
     isPlaying: false,
 
     // Actions
-    setCodeVisibility: (value) => set({ codeHide: value === 'hide' }),
+    setCodeVisibility: (value) =>
+      set({
+        codeHide: value === 'hide',
+        codeMid: value === 'medium',
+        codeFull: value === 'full',
+      }),
     setIsPlaying: (value) => set({ isPlaying: value }),
   })),
 )
