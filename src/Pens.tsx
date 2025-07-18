@@ -1,6 +1,6 @@
 import { usePens } from './hooks/usePens'
 
-export default function App() {
+export default function Pens() {
   const { pens, isLoading, error } = usePens()
 
   if (isLoading) return <p>Loading...</p>
