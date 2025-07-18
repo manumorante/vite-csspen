@@ -1,7 +1,7 @@
 import Header from '@/components/ui/Header'
-import View from './components/View/View'
-import Code from './components/Code/Code'
-import { usePen } from './hooks/usePen'
+import View from '@/components/View/View'
+import Code from '@/components/Code/Code'
+import { usePen } from '@/hooks/usePen'
 import { useParams } from 'react-router'
 
 export default function App() {

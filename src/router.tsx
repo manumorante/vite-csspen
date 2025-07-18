@@ -1,19 +1,14 @@
-import { createBrowserRouter, Navigate, RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router'
 
-import App from '@/App'
+import Home from '@/pages/Home'
+import Pen from '@/pages/Pen'
 
 const router = createBrowserRouter([
   {
     path: '/',
     children: [
-      {
-        index: true,
-        element: <Navigate to="/heart" replace />,
-      },
-      {
-        path: '/:penId',
-        Component: App,
-      },
+      { index: true, Component: Home },
+      { path: '/:penId', Component: Pen },
     ],
   },
 ])
