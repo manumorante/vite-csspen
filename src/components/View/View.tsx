@@ -4,9 +4,11 @@ import { cn } from '@/utils/cn'
 import StepsNav from './StepsNav/StepsNav'
 import Button from '../ui/Button'
 import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
+import { useParams } from 'react-router'
 
 export default function View() {
-  const { pen } = usePen({ penId: 'heart' })
+  const { penId } = useParams()
+  const { pen } = usePen({ penId })
   const { codeHide, codeFull, setCodeVisibility } = useUIStore()
 
   if (!pen) return null

@@ -1,8 +1,9 @@
 import { usePen } from '@/hooks/usePen'
 import { cn } from '@/utils/cn'
+import { useParams } from 'react-router'
 
 export default function PenInfo() {
-  const penId = 'heart'
+  const { penId } = useParams()
   const { pen } = usePen({ penId })
 
   if (!pen) return null

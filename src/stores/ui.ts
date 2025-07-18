@@ -16,7 +16,7 @@ type UIState = {
 export const useUIStore = create<UIState>()(
   devtools((set) => ({
     // Data
-    codeHide: true,
+    codeHide: false,
     codeMid: true,
     codeFull: false,
     isPlaying: false,
