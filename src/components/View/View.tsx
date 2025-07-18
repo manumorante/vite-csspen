@@ -2,10 +2,12 @@ import { usePen } from '@/hooks/usePen'
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
 import StepsNav from './StepsNav/StepsNav'
+import Button from '../ui/Button'
+import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
 
 export default function View() {
   const { pen } = usePen({ penId: 'heart' })
-  const { codeHide, codeFull } = useUIStore()
+  const { codeHide, codeFull, setCodeVisibility } = useUIStore()
 
   if (!pen) return null
 
@@ -32,6 +34,18 @@ export default function View() {
       </div>
 
       <StepsNav />
+
+      <Button
+        onClick={() => setCodeVisibility('medium')}
+        className={cn('absolute right-3 bottom-3', { hidden: !codeHide })}>
+        <CodeBracketIcon />
+      </Button>
+
+      <Button
+        onClick={() => setCodeVisibility('full')}
+        className={cn('absolute right-3 bottom-3', { hidden: codeHide })}>
+        <ChevronUpIcon />
+      </Button>
     </div>
   )
 }
