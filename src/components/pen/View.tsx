@@ -1,11 +1,11 @@
 import { usePen } from '@/hooks/usePen'
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
-import StepsNav from './StepsNav/StepsNav'
-import Button from '../ui/Button'
+import StepsNav from '@/components/pen/StepsNav'
+import Button from '@/components/ui/Button'
 import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
 import { useParams } from 'react-router'
-import StepInfo from './StepInfo'
+import StepInfo from '@/components/pen/StepInfo'
 import Html from '@/components/Html'
 import Style from '@/components/Style'
 
@@ -22,7 +22,7 @@ export default function View() {
 
   return (
     <div
-      className={cn('View relative overflow-hidden transition-all duration-300', {
+      className={cn('PenView relative overflow-hidden transition-all duration-300', {
         grow: !codeFull,
         'h-0': codeFull,
       })}>

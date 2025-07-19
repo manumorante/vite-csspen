@@ -4,11 +4,11 @@ import { Link } from 'react-router'
 
 export default function Layout({
   children,
-  bgcolor,
+  bgcolor = 'inherit',
   className,
 }: {
   children: ReactNode
-  bgcolor: string
+  bgcolor?: string
   className?: string
 }) {
   return (

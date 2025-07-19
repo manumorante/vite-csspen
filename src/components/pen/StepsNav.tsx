@@ -7,7 +7,7 @@ type Props = {
   onClick?: () => void
 }
 
-export default function StepNav({ left, right, onClick }: Props) {
+function StepNav({ left, right, onClick }: Props) {
   return (
     <div
       className={cn(
@@ -26,5 +26,14 @@ export default function StepNav({ left, right, onClick }: Props) {
         {right && <ChevronRightIcon />}
       </div>
     </div>
+  )
+}
+
+export default function StepsNav() {
+  return (
+    <>
+      <StepNav left />
+      <StepNav right />
+    </>
   )
 }

@@ -1,6 +1,6 @@
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
-import PenInfo from '@/components/View/PenInfo'
+import PenInfo from '@/components/pen/PenInfo'
 
 export default function Header() {
   const { codeFull } = useUIStore()

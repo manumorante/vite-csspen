@@ -1,6 +1,6 @@
 import Header from '@/components/ui/Header'
-import View from '@/components/View/View'
-import Code from '@/components/Code/Code'
+import View from '@/components/pen/View'
+import CodeView from '@/components/codeView/CodeView'
 import { usePen } from '@/hooks/usePen'
 import { useParams } from 'react-router'
 import Layout from '@/layout'
@@ -15,7 +15,7 @@ export default function App() {
     <Layout bgcolor={pen.bgcolor}>
       <Header />
       <View />
-      <Code />
+      <CodeView />
     </Layout>
   )
 }
