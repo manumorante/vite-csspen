@@ -20,7 +20,7 @@ export default function PenView() {
 
   return (
     <div
-      className={cn('PenView relative overflow-hidden transition-all duration-300', {
+      className={cn('PenView relative overflow-hidden transition-[height] duration-300', {
         grow: !codeFull,
         'h-0': codeFull,
       })}>

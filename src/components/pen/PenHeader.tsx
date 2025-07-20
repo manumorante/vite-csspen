@@ -9,7 +9,7 @@ export default function PenHeader() {
     <div
       className={cn(
         'PenHeader',
-        'relative overflow-hidden transition-all duration-300',
+        'relative overflow-hidden transition-[height,opacity] duration-300',
         'bg-gradient-to-b from-black/20',
         {
           'h-24': !codeFull,

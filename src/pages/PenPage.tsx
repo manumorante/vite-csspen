@@ -17,7 +17,7 @@ export default function PenPage() {
 
   return (
     <Layout bgcolor={pen.bgcolor}>
-      <div className={cn('Pen', 'flex h-full w-full flex-col overflow-hidden')}>
+      <div className={cn('Pen', 'flex h-full w-full flex-col justify-between overflow-hidden')}>
         <PenHeader />
         <PenView />
         <CodeView />
