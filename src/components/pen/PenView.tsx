@@ -6,10 +6,10 @@ import Button from '@/components/ui/Button'
 import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
 import { useParams } from 'react-router'
 import StepInfo from '@/components/pen/StepInfo'
-import Html from '@/components/Html'
-import Style from '@/components/Style'
+import Html from '@/components/pen/Html'
+import Style from '@/components/pen/Style'
 
-export default function View() {
+export default function PenView() {
   const { penId } = useParams()
   const { pen } = usePen({ penId })
   const { codeHide, codeFull, setCodeVisibility } = useUIStore()

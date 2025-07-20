@@ -1,30 +1,16 @@
-import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
-import PenInfo from '@/components/pen/PenInfo'
+import { Link } from 'react-router'
+import { HomeIcon } from '@heroicons/react/20/solid'
 
 export default function Header() {
-  const { codeFull } = useUIStore()
-
   return (
-    <div
-      className={cn(
-        'Header',
-        'relative overflow-hidden transition-all duration-300',
-        'bg-gradient-to-b from-black/20',
-        {
-          'h-24': !codeFull,
-          'h-0 opacity-0': codeFull,
-        },
-      )}>
-      <div className="Progress xs:px-4 xs:pt-4 flex gap-1">
-        {Array.from({ length: 5 }, (_, i) => (
-          <div className="grow bg-white/30" title={`Step ${i + 1}`}>
-            <div className="h-0.5 bg-white"></div>
-          </div>
-        ))}
-      </div>
-
-      <PenInfo />
+    <div className={cn('Header', 'h-10 w-full bg-black/80 px-3', 'flex items-center')}>
+      <Link
+        className={cn('font-semibold tracking-wide text-white/90', 'flex items-center gap-1')}
+        to="/">
+        <HomeIcon className="h-5 w-5" />
+        csspen
+      </Link>
     </div>
   )
 }

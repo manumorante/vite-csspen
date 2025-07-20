@@ -1,23 +1,30 @@
 import { useEffect, useState } from 'react'
+import { usePensStore } from '@/stores/pens'
 import { getPens } from '@/api/pens'
-import type { Pen } from '@/types'
 
-export function usePens() {
-  const [pens, setPens] = useState<Pen[]>()
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState(false)
+export const usePens = () => {
+  const pens = usePensStore((state) => state.pens)
+  const setPens = usePensStore((state) => state.setPens)
+  const [isLoading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
-    async function fetcher() {
-      const { data, error } = await getPens()
-      const valid = !error && data && data.length > 0
-      if (valid) setPens(data)
-      setError(!valid)
-      setIsLoading(false)
-    }
+    if (pens.length === 0 && !isLoading) {
+      const fetchData = async () => {
+        setLoading(true)
+        try {
+          const { data } = await getPens()
+          setPens(data ?? [])
+        } catch (err) {
+          setError(`getPens(): ${err}`)
+        } finally {
+          setLoading(false)
+        }
+      }
 
-    fetcher()
-  }, [])
+      fetchData()
+    }
+  }, [pens, isLoading, setPens])
 
   return { pens, isLoading, error }
 }

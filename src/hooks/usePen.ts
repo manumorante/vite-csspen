@@ -28,5 +28,5 @@ export function usePen({ penId }: { penId: string | undefined }) {
     })
   }, [penId])
 
-  return { pen, error, isLoading }
+  return { pen, error, isLoading, hasData: !!pen }
 }

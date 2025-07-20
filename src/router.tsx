@@ -1,14 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
+import { lazy } from 'react'
 
-import Home from '@/pages/Home'
-import Pen from '@/pages/Pen'
+const Home = lazy(() => import('./pages/Home'))
+const PenPage = lazy(() => import('./pages/PenPage'))
 
 const router = createBrowserRouter([
   {
     path: '/',
     children: [
       { index: true, Component: Home },
-      { path: '/:penId', Component: Pen },
+      { path: '/:penId', Component: PenPage },
     ],
   },
 ])

@@ -1,18 +1,20 @@
 import { cn } from '@/utils/cn'
-import { CubeTransparentIcon } from '@heroicons/react/24/outline'
-
+import { ArrowPathRoundedSquareIcon } from '@heroicons/react/24/outline'
 export default function Loading({
-  label = '',
+  text = '',
   full = true,
 }: {
-  label?: string
+  text?: string
   /** will occupy the full width and height in absolute */
   full?: boolean
 }) {
   return (
-    <div className={cn({ 'absolute flex h-full w-full items-center justify-center': full })}>
+    <div
+      className={cn({
+        'absolute flex h-full w-full items-center justify-center bg-black/50': full,
+      })}>
       <div className="flex gap-3">
-        <CubeTransparentIcon className="h-7 w-7 animate-spin" /> {label}
+        <ArrowPathRoundedSquareIcon className="h-7 w-7 animate-spin duration-500" /> {text}
       </div>
     </div>
   )
