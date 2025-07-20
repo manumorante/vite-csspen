@@ -1,17 +1,15 @@
-import { usePen } from '@/hooks/usePen'
+import Html from '@/components/pen/Html'
+import StepInfo from '@/components/pen/StepInfo'
+import StepsNav from '@/components/pen/StepsNav'
+import Style from '@/components/pen/Style'
+import Button from '@/components/ui/Button'
+import { useCurrentPen } from '@/hooks/useCurrentPen'
 import { useUIStore } from '@/stores/ui'
 import { cn } from '@/utils/cn'
-import StepsNav from '@/components/pen/StepsNav'
-import Button from '@/components/ui/Button'
 import { ChevronUpIcon, CodeBracketIcon } from '@heroicons/react/20/solid'
-import { useParams } from 'react-router'
-import StepInfo from '@/components/pen/StepInfo'
-import Html from '@/components/pen/Html'
-import Style from '@/components/pen/Style'
 
 export default function PenView() {
-  const { penId } = useParams()
-  const { pen } = usePen({ penId })
+  const { pen } = useCurrentPen()
   const { codeHide, codeFull, setCodeVisibility } = useUIStore()
 
   if (!pen) return null

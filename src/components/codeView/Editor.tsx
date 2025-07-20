@@ -1,13 +1,10 @@
 import CodeMirror from '@uiw/react-codemirror'
 import { myTheme } from './theme'
 import { css as codeCSS } from '@codemirror/lang-css'
-
-import { usePen } from '@/hooks/usePen'
-import { useParams } from 'react-router'
+import { useCurrentPen } from '@/hooks/useCurrentPen'
 
 export default function Editor() {
-  const { penId } = useParams()
-  const { pen } = usePen({ penId })
+  const { pen } = useCurrentPen()
 
   const css = pen?.steps[0].css
   return (

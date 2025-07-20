@@ -3,26 +3,33 @@ import type { Pen } from '@/types'
 import { usePens } from './usePens'
 import { usePensStore } from '@/stores/pens'
 
-export function usePen({ penId }: { penId?: string }) {
+export function useCurrentPen() {
   const { pens, isLoading, error: errorPens } = usePens()
   const [pen, setPen] = useState<Pen>()
   const [error, setError] = useState('')
-  const setActiveId = usePensStore((state) => state.setActiveId)
+  const activeId = usePensStore((state) => state.activeId)
 
   useEffect(() => {
-    if (errorPens) return
-    if (!pens.length) return
-    if (!penId) return
+    if (!activeId) {
+      setError('There are currently no active Pen')
+      return
+    }
 
-    const newPen = pens.find((item) => item.id === penId)
+    if (errorPens) {
+      setError(errorPens)
+      return
+    }
+
+    if (!pens.length) return
+
+    const newPen = pens.find((item) => item.id === activeId)
 
     if (newPen) {
       setPen(newPen)
-      setActiveId(newPen.id)
     } else {
-      setError(`Pen with id '${penId}' not found`)
+      setError(`Pen with id '${activeId}' not found`)
     }
-  }, [penId, pens, errorPens, setActiveId])
+  }, [activeId, pens, errorPens])
 
   return { pen, isLoading, error }
 }
