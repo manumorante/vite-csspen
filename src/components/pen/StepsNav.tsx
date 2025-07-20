@@ -19,8 +19,7 @@ function StepNav({ left, right, onClick }: Props) {
         'touch-manipulation',
         { 'left-0': left, 'right-0': right },
       )}
-      onClick={onClick}
-      onTouchStart={onClick}>
+      onClick={onClick}>
       <div
         className={cn('NavStepIcon h-16 w-16 text-white/60', {
           'mr-24': left,
