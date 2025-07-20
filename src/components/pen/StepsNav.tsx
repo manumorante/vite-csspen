@@ -16,9 +16,11 @@ function StepNav({ left, right, onClick }: Props) {
         'StepNav absolute top-16 z-10',
         'bottom-16 flex w-5/12 items-center justify-center',
         'active:bg-white/5',
+        'touch-manipulation',
         { 'left-0': left, 'right-0': right },
       )}
-      onClick={onClick}>
+      onClick={onClick}
+      onTouchStart={onClick}>
       <div
         className={cn('NavStepIcon h-16 w-16 text-white/60', {
           'mr-24': left,
