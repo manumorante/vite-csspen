@@ -18,7 +18,7 @@ export default function PenHeader() {
       )}>
       <div className="Progress xs:px-4 xs:pt-4 flex gap-1">
         {Array.from({ length: 5 }, (_, i) => (
-          <div className="grow bg-white/30" title={`Step ${i + 1}`}>
+          <div key={i} className="grow bg-white/30" title={`Step ${i + 1}`}>
             <div className="h-0.5 bg-white"></div>
           </div>
         ))}

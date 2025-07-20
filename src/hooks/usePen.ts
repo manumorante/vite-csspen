@@ -1,32 +1,25 @@
 import { useEffect, useState } from 'react'
-import { getPen } from '@/api/pens'
 import type { Pen } from '@/types'
+import { usePens } from './usePens'
 
-export function usePen({ penId }: { penId: string | undefined }) {
-  const [pen, setPen] = useState<Pen | null>(null)
+export function usePen({ penId }: { penId?: string }) {
+  const { pens, isLoading, error: errorPens } = usePens()
+  const [pen, setPen] = useState<Pen>()
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    if (!penId) {
-      setError('usePen() - No valid ID received')
-      setIsLoading(false)
-      return
+    if (errorPens) return
+    if (!pens.length) return
+    if (!penId) return
+
+    const newPen = pens.find((item) => item.id === penId)
+
+    if (newPen) {
+      setPen(newPen)
+    } else {
+      setError(`Pen with id '${penId}' not found`)
     }
+  }, [penId, pens, errorPens])
 
-    getPen({ penId }).then(({ data, error }) => {
-      if (error || !data?.steps?.length) {
-        setPen(null)
-        setError(`usePen(${penId}) - ${error || 'Invalid pen data'}`)
-        setIsLoading(false)
-        return
-      }
-
-      setPen(data)
-      setError('')
-      setIsLoading(false)
-    })
-  }, [penId])
-
-  return { pen, error, isLoading, hasData: !!pen }
+  return { pen, isLoading, error }
 }

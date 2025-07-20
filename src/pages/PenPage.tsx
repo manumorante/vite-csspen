@@ -10,7 +10,7 @@ import Loading from '@/components/ui/Loading'
 
 export default function PenPage() {
   const { penId } = useParams()
-  const { pen, error, isLoading } = usePen({ penId })
+  const { pen, isLoading, error } = usePen({ penId })
 
   if (isLoading) return <Loading />
   if (error || !pen) return <ErrorMessage />
